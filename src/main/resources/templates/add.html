@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>WorldCup</title>
+</head>
+<body style="background-image: url('/background.jpg'); background-size: cover;">
+<header th:align="center" style="color: antiquewhite; background-color: forestgreen; font-size: 40px">
+    <a href="/">Home</a> |
+    <a href="/add">Add Team</a> |
+    <a href="/edit">Edit Team</a> |
+    <a href="/delete">Delete Team</a> |
+    <a href="/display">Display Results</a> |
+</header>
+<br><br>
+<div th:align="center" style="background-color: bisque">
+<form method="post" th:action="@{/addTeam}" th:object="${team}">
+    <table>
+        <tr>
+            <td><input type="hidden" th:field="*{teamID}"/>
+        </tr>
+        <tr>
+            <td>Team Name:</td>
+            <td><input type="text" th:field="*{teamName}"/></td>
+        </tr>
+        <tr>
+            <td>Continent:</td>
+            <td><select th:field="*{continent}">
+                <option value="Africa">Africa</option>
+                <option value="Asia">Asia</option>
+                <option value="Europe">Europe</option>
+                <option value="Oceania">Oceania</option>
+                <option value="N. America">North America</option>
+                <option value="S. America">South America</option>
+            </select></td>
+        </tr>
+        <tr>
+            <td>Number of Played Games:</td>
+            <td><input type="number" th:field="*{played}"/></td>
+        </tr>
+        <tr>
+            <td>Number of Won Games:</td>
+            <td><input type="number" th:field="*{won}"/></td>
+        </tr>
+        <tr>
+            <td>Number of Drawn Games</td>
+            <td><input type="number" th:field="*{drawn}"/></td>
+        </tr>
+        <tr>
+            <td>Number Of Lost Games:</td>
+            <td><input type="number" th:field="*{lost}"/></td>
+        </tr>
+    </table>
+    <input type="submit" value="Go">
+
+</form>
+</div>
+<br><br>
+<footer th:align="center" style="alignment: bottom; color: bisque"><h2>e.g., © 2021 by Hieu Vu All rights reserved.</h2></footer>
+</body>
+</html>
